@@ -1,34 +1,31 @@
-# intellij-external-binary-viewer
+# IntelliJ External Binary Viewer
 
-![Build](https://github.com/furubarug/intellij-external-binary-viewer/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
-
-## Template ToDo list
-- [x] Create a new [IntelliJ Platform Plugin Template][template] project.
-- [ ] Get familiar with the [template documentation][template].
-- [ ] Verify the [pluginGroup](/gradle.properties), [plugin ID](/src/main/resources/META-INF/plugin.xml) and [sources package](/src/main/kotlin).
-- [ ] Review the [Legal Agreements](https://plugins.jetbrains.com/docs/marketplace/legal-agreements.html).
-- [ ] [Publish a plugin manually](https://plugins.jetbrains.com/docs/intellij/publishing-plugin.html?from=IJPluginTemplate) for the first time.
-- [ ] Set the Plugin ID in the above README badges.
-- [ ] Set the [Deployment Token](https://plugins.jetbrains.com/docs/marketplace/plugin-upload.html).
-- [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.
+[![Version](https://img.shields.io/jetbrains/plugin/v/18695-external-binary-viewer.svg)](https://plugins.jetbrains.com/plugin/18695-external-binary-viewer)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/18695-external-binary-viewer.svg)](https://plugins.jetbrains.com/plugin/18695-external-binary-viewer)
+[![License: MIT](https://img.shields.io/github/license/furubarug/intellij-external-binary-viewer)](https://github.com/furubarug/intellij-external-binary-viewer/blob/main/LICENSE)
 
 <!-- Plugin description -->
-This Fancy IntelliJ Platform Plugin is going to be your implementation of the brilliant ideas that you have.
+[IntelliJ External Binary Viewer](https://plugins.jetbrains.com/plugin/18695-external-binary-viewer) provides the
+viewing of binary files by external command text conversion. This works
+like [textconv](http://git-scm.com/docs/gitattributes/2.32.0#_performing_text_diffs_of_binary_files) in Git.
 
-This specific section is a source for the [plugin.xml](/src/main/resources/META-INF/plugin.xml) file which will be extracted by the [Gradle](/build.gradle.kts) during the build process.
+### Use cases
 
-To keep everything working, do not remove `<!-- ... -->` sections. 
+* View a docx file by converting it to Markdown format with [Pandoc](https://github.com/jgm/pandoc).
+  * `pandoc -f docx -t markdown`
+* View differences in tar files.
+  * `tar -t`
+
 <!-- Plugin description end -->
 
 ## Installation
 
 - Using IDE built-in plugin system:
-  
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "intellij-external-binary-viewer"</kbd> >
+
+  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "
+  intellij-external-binary-viewer"</kbd> >
   <kbd>Install Plugin</kbd>
-  
+
 - Manually:
 
   Download the [latest release](https://github.com/furubarug/intellij-external-binary-viewer/releases/latest) and install it manually using

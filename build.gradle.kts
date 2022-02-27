@@ -24,6 +24,16 @@ repositories {
     mavenCentral()
 }
 
+dependencies {
+    implementation("com.github.pgreze:kotlin-process:1.3.1")
+    implementation("com.opencsv:opencsv:5.5.2")
+    properties("kotestVersion").let {
+        testImplementation("io.kotest:kotest-runner-junit5:$it")
+        testImplementation("io.kotest:kotest-assertions-core:$it")
+        testImplementation("io.kotest:kotest-framework-engine:$it")
+    }
+}
+
 // Configure Gradle IntelliJ Plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
 intellij {
     pluginName.set(properties("pluginName"))
@@ -57,7 +67,11 @@ tasks {
         }
         withType<KotlinCompile> {
             kotlinOptions.jvmTarget = it
+            kotlinOptions.freeCompilerArgs += "-Xjvm-default=compatibility"
         }
+    }
+    withType<Test> {
+        useJUnitPlatform()
     }
 
     wrapper {

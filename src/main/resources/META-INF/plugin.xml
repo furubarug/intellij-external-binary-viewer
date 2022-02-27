@@ -1,18 +1,24 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.furubarug.intellijexternalbinaryviewer</id>
-    <name>intellij-external-binary-viewer</name>
+    <id>com.github.furubarug.intellij.external.binary.viewer</id>
+    <name>External Binary Viewer</name>
     <vendor>furubarug</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.furubarug.intellijexternalbinaryviewer.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.furubarug.intellijexternalbinaryviewer.services.MyProjectService"/>
+        <applicationService
+                serviceImplementation="com.github.furubarug.intellij.external.binary.viewer.services.RegistrationManageService"/>
+        <applicationService
+                serviceImplementation="com.github.furubarug.intellij.external.binary.viewer.settings.SettingsState"/>
+        <applicationConfigurable
+                instance="com.github.furubarug.intellij.external.binary.viewer.settings.SettingsConfigurable"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.furubarug.intellijexternalbinaryviewer.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+        <listener class="com.github.furubarug.intellij.external.binary.viewer.listeners.PluginListener"
+                  topic="com.intellij.ide.AppLifecycleListener"/>
+        <listener class="com.github.furubarug.intellij.external.binary.viewer.listeners.PluginListener"
+                  topic="com.intellij.ide.plugins.DynamicPluginListener"/>
     </applicationListeners>
 </idea-plugin>
